@@ -8,9 +8,15 @@
 int main(void)
 {
 char alphabet;
-if(alphabet!=q || alphabet!=e)
+alphabet = 'a';
+while (alphabet <= 'z')
 {
-putchar(strlwr(alphabet));
+if (alphabet == 'q' || alphabet == 'e')
+{
+continue;
 }
+putchar(alphabet);
+}
+putchar('\n');
 return (0);
 }
