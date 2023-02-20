@@ -13,6 +13,7 @@ while (alphabet <= 'z')
 {
 if (alphabet == 'q' || alphabet == 'e')
 {
+alphabet++;
 continue;
 }
 putchar(alphabet);
