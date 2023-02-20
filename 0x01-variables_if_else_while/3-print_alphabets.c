@@ -12,9 +12,10 @@ while (alphabet <= 'z')
 {
 putchar(alphabet);
 }
-while (strupr(alphabet) <= 'Z')
+alphabet = 'A';
+while (alphabet <= 'Z')
 {
-putchar(strupr(alphabet));
+putchar(alphabet);
 }
 putchar('\n');
 return (0);
