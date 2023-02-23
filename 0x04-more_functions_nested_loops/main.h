@@ -34,6 +34,12 @@ void fizz_buzz(void);
 /* 10-print_triangle.c */
 void print_triangle(int size);
 
+/* 11-largest_prime_factor.c */
+long largest_prime_factor(long n);
+
+/* 12-print_number.c */
+void print_number(int n);
+
 /* _putchar.c */
 int _putchar(char c);
 
