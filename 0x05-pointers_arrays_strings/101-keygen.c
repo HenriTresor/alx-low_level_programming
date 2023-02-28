@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 /**
  * main - Generates random valid passwords for the
@@ -44,6 +41,8 @@ break;
 }
 }
 }
-print("%s", password);
+printf("%s", password);
 return (0);
 }
+}
+
