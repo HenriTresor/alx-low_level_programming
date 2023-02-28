@@ -9,7 +9,7 @@
  */
 
 int main(void) {
-char password[84]
+char password[84];
 int index, sum, diff_half1, diff_half2;
 index = 0;
 sum = 0;
@@ -22,7 +22,7 @@ sum += password[index++];
 password[index] = '\0';
 if (sum != 2772)
 {
-diff_half! = (sum - 2772) / 2;
+diff_half1 = (sum - 2772) / 2;
 diff_half2 = (sum - 2772) / 2;
 if ((sum - 2772) % 2 != 0)
 {
@@ -31,7 +31,7 @@ for (index = 0; password[index]; index++)
 {
 if (password[index] >= (33 - diff_half1))
 {
-password[index] -= diff_half!;
+password[index] -= diff_half1;
 break;
 }
 }
