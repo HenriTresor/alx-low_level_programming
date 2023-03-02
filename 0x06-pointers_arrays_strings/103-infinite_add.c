@@ -1,38 +1,50 @@
 #include <stdio.h>
-#include <string.h>
+
 /**
- * infinite_Add - add two numbers
+ * infinite_add - Adds two numbers.
+ * @n1: The first number.
+ * @n2: The second number.
+ * @r: The buffer to store the result.
+ * @size_r: The buffer size.
  *
- * @n1: first paramater
- * @n2: second parameter
- * @r: third parameter
- * @size_r: fourth parameter
- *
- * Return: r (Success)
+ * Return: If the result can be stored in r - a pointer to the result.
+ *         If the result cannot be stored in r - 0.
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r) {
-int len1 = strlen(n1);
-int len2 = strlen(n2);
-// Check if the result can be stored in r
-if (len1 + len2 + 1 > size_r) {
-return 0;
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
+{
+int len1 = 0, len2 = 0, len_sum = 0;
+int carry = 0, digit_sum = 0;
+int i, j;
+
+while (n1[len1])
+len1++;
+while (n2[len2])
+len2++;
+
+if (len1 + 2 > size_r || len2 + 2 > size_r)
+return (0);
+
+r[size_r - 1] = '\0';
+len_sum = size_r - 2;
+
+for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0; i--, j--)
+{
+digit_sum = carry;
+if (i >= 0)
+digit_sum += n1[i] - '0';
+if (j >= 0)
+digit_sum += n2[j] - '0';
+
+carry = digit_sum / 10;
+r[len_sum--] = (digit_sum % 10) + '0';
 }
-int carry = 0;
-int i, j, k;
-for (i = len1 - 1, j = len2 - 1, k = 0; i >= 0 || j >= 0 || carry > 0; i--, j--, k++) {
-int digit1 = i >= 0 ? n1[i] - '0' : 0;
-int digit2 = j >= 0 ? n2[j] - '0' : 0;
-int sum = digit1 + digit2 + carry;
-carry = sum / 10;
-int digit = sum % 10;
-r[k] = digit + '0';
+
+if (carry)
+{
+if (len_sum < 0)
+return (0);
+r[len_sum--] = carry + '0';
 }
-// Reverse the result string
-int len = strlen(r);
-for (i = 0, j = len - 1; i < j; i++, j--) {
-char tmp = r[i];
-r[i] = r[j];
-r[j] = tmp;
-}
-return (r);
+
+return (r + len_sum + 1);
 }

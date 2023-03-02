@@ -1,2 +1,1 @@
-### Started working on pointers and arrays
-
+this is a readme

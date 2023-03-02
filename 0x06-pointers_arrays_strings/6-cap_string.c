@@ -1,21 +1,37 @@
+#include <stdio.h>
+
 /**
  * cap_string - Capitalizes all words of a string
- * @s: Pointer to string
  *
- * Return: Pointer to resulting string
+ * @str: Pointer to the string to be modified
+ *
+ * Return: Pointer to the modified string
  */
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
 int i;
-char *sep = " \t\n,;.!?\"(){}";
-/* Capitalize first character of string */
-if (s[0] >= 'a' && s[0] <= 'z')
-s[0] -= 32;
-/* Capitalize first character after each separator */
-for (i = 1; s[i] != '\0'; i++)
+int capitalize = 1;
+
+for (i = 0; str[i] != '\0'; i++)
 {
-if (strchr(sep, s[i - 1]) != NULL && s[i] >= 'a' && s[i] <= 'z')
-s[i] -= 32;
+if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
+str[i] == ',' || str[i] == ';' || str[i] == '.' ||
+str[i] == '!' || str[i] == '?' || str[i] == '"' ||
+str[i] == '(' || str[i] == ')' || str[i] == '{' ||
+str[i] == '}')
+{
+capitalize = 1;
 }
-return s;
+else if (capitalize && str[i] >= 'a' && str[i] <= 'z')
+{
+str[i] = str[i] - 32;
+capitalize = 0;
+}
+else
+{
+capitalize = 0;
+}
+}
+
+return (str);
 }
