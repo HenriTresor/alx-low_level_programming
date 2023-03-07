@@ -1,17 +1,19 @@
 #include <stdio.h>
 /**
- * _puts - Prints a string to stdout
- * @str: pointer to the first character of the string
+ * _puts - Prints a string to stdout, followed by a new line.
+ * @str: A pointer to a null-terminated string.
  *
- * Return: void
+ * Return: Nothing.
  */
-
 void _puts(char *str)
 {
-while (*str != '\0')
+int i;
+
+for (i = 0; str[i] != '\0'; i++)
 {
-putchar(*str);
-str++;
+putchar(str[i]);
 }
+
 putchar('\n');
 }
+

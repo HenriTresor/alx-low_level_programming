@@ -1,18 +1,19 @@
-#include<stdio.h>
+#include <stdio.h>
+
 /**
- *main - Entry point
+ * main - Entry point
  *
- *Return: 0 (Success)
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-int n;
-n = 0;
-while (n < 10)
+int i;
+
+for (i = 0; i < 10; i++)
 {
-printf("%d", n);
-n++;
+printf("%d", i);
 }
-putchar('\n');
+printf("\n");
 return (0);
 }

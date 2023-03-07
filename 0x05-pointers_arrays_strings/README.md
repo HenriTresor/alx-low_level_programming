@@ -1,2 +1,1 @@
-working with pointers
-
+pointers in c

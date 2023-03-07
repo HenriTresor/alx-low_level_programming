@@ -1,18 +1,23 @@
-#include<stdio.h>
+#include <stdio.h>
+
 /**
  * main - Entry point
  *
- * Return: 0 (Success)
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-char alphabet;
-alphabet = 'a';
-while (alphabet <= 'z')
+char letter = 'a';
+int i;
+
+for (i = 0; i < 26; i++)
 {
-putchar(alphabet);
-alphabet++;
+putchar(letter);
+letter++;
 }
+
 putchar('\n');
+
 return (0);
 }
