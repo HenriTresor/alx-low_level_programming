@@ -1,11 +1,29 @@
-#include<stdio.h>
+#include <stdio.h>
+
 /**
- *main - Entry point
+ * main - prints all possible combinations of single-digit numbers
  *
- *Return: 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-putchar('f');
+int i;
+int comma = ',';
+int space = ' ';
+
+for (i = 0; i < 10; i++)
+{
+putchar(i + '0');
+if (i < 9)
+{
+putchar(comma);
+putchar(space);
+}
+}
+putchar('\n');
+
 return (0);
 }
+
+
+

@@ -1,48 +1,43 @@
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
 
 /**
- * main - Generates random valid passwords for the
- * program 101-crackme
- * Return: Always 0.
+ * main - generates a random valid password for 101-crackme
+ *
+ * Return: 0
  */
+int main(void)
+{
+char password[12];
+int i, sum, diff;
 
-int main(void) {
-char password[84];
-int index, sum, diff_half1, diff_half2;
-index = 0;
+srand(time(NULL));
+
+/* Generate first 7 characters */
+for (i = 0; i < 7; i++)
+password[i] = rand() % 10 + '0';
+
+/* Generate last 5 characters */
 sum = 0;
-srand(time(0));
-while (sum < 2772)
-{
-password[index] = 33 + rand() % 94;
-sum += password[index++];
-}
-password[index] = '\0';
-if (sum != 2772)
-{
-diff_half1 = (sum - 2772) / 2;
-diff_half2 = (sum - 2772) / 2;
-if ((sum - 2772) % 2 != 0)
-{
-diff_half1++;
-for (index = 0; password[index]; index++)
-{
-if (password[index] >= (33 - diff_half1))
-{
-password[index] -= diff_half1;
-break;
-}
-}
-for (index = 0; password[index]; index++)
-{
-if (password[index] >= (33 - diff_half2))
-{
-password[index] -= diff_half2;
-break;
-}
-}
-}
-printf("%s", password);
+for (i = 0; i < 7; i++)
+sum += password[i] - '0';
+diff = ('9' - '0' + 1) * 7 - sum;
+if (diff <= 0 || diff > 9)
+password[7] = '0';
+else
+password[7] = diff + '0';
+for (i = 8; i < 12; i++)
+password[i] = rand() % 10 + '0';
+
+/* Print password */
+for (i = 0; i < 12; i++)
+putchar(password[i]);
+putchar('\n');
+
 return (0);
 }
-}
+
+
+
 
